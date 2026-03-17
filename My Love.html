@@ -1,0 +1,155 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<title>Message For You My Love❤️</title>
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<style>
+/* BODY STYLING */
+body {
+    margin: 0;
+    padding: 0;
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    background: linear-gradient(to right, #ff9a9e, #fad0c4, #fbc2eb); /* EDIT HERE: change background colors if you like */
+    text-align: center;
+    overflow-x: hidden;
+    cursor: none;
+}
+h1 {
+    font-size: 3em;
+    color: #ff0066;
+    margin-top: 40px;
+    animation: pulse 2s infinite;
+}
+p {
+    font-size: 1.2em;
+    color: #550033;
+    max-width: 90%;
+    margin: 20px auto;
+    opacity: 0;
+    animation: fadeInText 2s forwards 1s;
+}
+/* IMAGE GALLERY */
+.gallery {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    margin: 20px 0;
+    gap: 15px;
+}
+.gallery img {
+    width: 45vw;
+    max-width: 250px;
+    height: auto;
+    border-radius: 15px;
+    transition: transform 0.5s, box-shadow 0.5s;
+    cursor: pointer;
+    opacity: 0;
+    position: relative;
+}
+.gallery img:hover {
+    transform: scale(1.05);
+    box-shadow: 0 0 15px #ff66aa;
+}
+
+/* FLOATING HEARTS AND ANIMATIONS */
+.heart, .cursor-heart, .burst-heart, #final-heart {
+    /* these are managed by JS, do not change class names */
+}
+
+/* PULSE HEADER */
+@keyframes pulse { 0%,100%{transform:scale(1);}50%{transform:scale(1.1);} }
+/* FLOATING HEART */
+@keyframes float {0% { transform: translateX(0) translateY(0) rotate(-45deg); opacity:1; }100% { transform: translateX(-150px) translateY(-600px) rotate(-45deg); opacity:0; }}
+/* FADE IN TEXT & IMAGE */
+@keyframes fadeInText {0% { opacity:0; transform:translateY(10px); }100% { opacity:1; transform:translateY(0); }}
+@keyframes fadeInImage {0% { opacity:0; transform:scale(0.8); }100% { opacity:1; transform:scale(1); }}
+/* PULSE FINAL HEART */
+@keyframes growHeart {0% { transform:translate(-50%,-50%) rotate(-45deg) scale(0); opacity:0; }100% { transform:translate(-50%,-50%) rotate(-45deg) scale(1.5); opacity:1; }}
+@keyframes pulseHeart {0%,100%{ transform:translate(-50%,-50%) rotate(-45deg) scale(1.5); }50% { transform:translate(-50%,-50%) rotate(-45deg) scale(1.65); }}
+</style>
+</head>
+<body>
+
+<!-- HEADER: EDIT TEXT IF DESIRED -->
+<h1>To My Lovely Petronila ❤️</h1> <!-- EDIT HERE -->
+
+<!-- LOVE MESSAGE: EDIT TEXT -->
+<p>
+My Love💘,  
+<br><br>
+Since the moment you stepped into my life, everything has felt brighter and more meaningful.  
+Your laughter is my favorite melody, your smile my daily sunshine, and your presence my safe haven.  
+Every word you speak, every kind gesture, every moment we share fills my heart with joy I never knew existed.  
+You have been my guiding light, my inspiration, and my unwavering support.  
+With you, happiness is not just a feeling it’s a way of living, a rhythm that flows through every day we spend together.  
+I am endlessly grateful for your love, your patience, and the warmth you bring into my life.  
+You have transformed ordinary moments into cherished memories, and every day with you is a reminder of how deeply blessed I am.  
+<br><br>
+Thank you for being you for being the heart of my happiness, the reason I smile, and the love I treasure beyond measure.  
+I promise to cherish, honor, and love you always, now and forever.  
+<br><br>
+I love you more than words could ever capture.💋❣️💞💓💕 ❤️
+</p> <!-- EDIT HERE -->
+
+<!-- GALLERY: CHANGE IMAGE FILES AND ALT TEXT -->
+<div class="gallery">
+    <img src="Love1.2025.jpeg" alt="Memory 1"> <!-- EDIT HERE: change 'pic1.jpg' to your image -->
+    <img src="Love2.2025.jpeg" alt="Memory 2"> <!-- EDIT HERE -->
+    <img src="Love3.2025.jpeg" alt="Memory 3"> <!-- EDIT HERE -->
+    <img src="Love4.2025.jpeg" alt="Memory 4"> <!-- EDIT HERE -->
+    <img src="Love5.2025.jpeg" alt="Memory 5"> <!-- EDIT HERE -->
+    <img src="Love6.2025.jpeg" alt="Memory 6"> <!-- EDIT HERE -->
+</div>
+
+<!-- FOOTER: EDIT YOUR NAME -->
+<footer>Made with ❤️ by Your Love Shamir</footer> <!-- EDIT HERE -->
+
+<!-- FLOATING HEARTS: optional to move/change speed -->
+<div class="heart" style="left:10%; animation-duration:4s;"></div>
+<div class="heart" style="left:20%; animation-duration:6s;"></div>
+<div class="heart" style="left:35%; animation-duration:5s;"></div>
+<div class="heart" style="left:50%; animation-duration:7s;"></div>
+<div class="heart" style="left:65%; animation-duration:4.5s;"></div>
+<div class="heart" style="left:80%; animation-duration:6.5s;"></div>
+
+<!-- FINAL HEART MESSAGE: EDIT TEXT -->
+<div id="final-heart">I LOVE ❤️ YOU SO MUCH MY LOVELY WIFE</div> <!-- EDIT HERE -->
+
+<script>
+// Animate gallery images with heart burst
+const images = document.querySelectorAll('.gallery img');
+images.forEach((img,index)=>{
+    setTimeout(()=>{
+        img.style.opacity=1;
+        img.style.animation='fadeInImage 1s forwards';
+        setInterval(()=>{ img.style.animation='fadeInImage 1s forwards, sparkle 1s'; },3000);
+        const rect=img.getBoundingClientRect();
+        for(let i=0;i<8;i++){
+            const burst=document.createElement('div');
+            burst.classList.add('burst-heart');
+            burst.style.left=rect.left+rect.width/2+'px';
+            burst.style.top=rect.top+rect.height/2+'px';
+            const x=(Math.random()*120-60)+'px';
+            const y=(Math.random()*120-60)+'px';
+            burst.style.setProperty('--x',x);
+            burst.style.setProperty('--y',y);
+            document.body.appendChild(burst);
+            setTimeout(()=>burst.remove(),800);
+        }
+    },index*600);
+});
+
+// Cursor hearts
+document.addEventListener('mousemove',e=>{
+    const heart=document.createElement('div');
+    heart.classList.add('cursor-heart');
+    heart.style.left=e.clientX-6+'px';
+    heart.style.top=e.clientY-6+'px';
+    document.body.appendChild(heart);
+    setTimeout(()=>heart.remove(),1000);
+});
+</script>
+
+</body>
+</html>
